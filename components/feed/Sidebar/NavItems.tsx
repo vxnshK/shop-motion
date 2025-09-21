@@ -29,7 +29,7 @@ export const NavItems = () => {
 
   return (
     <motion.div
-      className='flex flex-col gap-3 my-4 px-8'
+      className='flex flex-col gap-3 my-4 px-4'
       variants={containerVariants}
       initial='hidden'
       animate='show'
