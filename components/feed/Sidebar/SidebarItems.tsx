@@ -7,11 +7,11 @@ import { QuickActions } from './QuickActions';
 
 const SidebarItems = () => {
   return (
-    <div>
+    <div className='max-h-[650px] overflow-y-scroll'>
       <NavItems />
-      <hr className='border-t-[1px] border-b-[1px] border-gray-200 my-8 w-[90%] mx-auto' />
+      <hr className='border-t-[0.8px] border-b-[0.8px] border-gray-300 my-8 w-[90%] mx-auto' />
       <QuickActions />
-      <hr className='border-t-[1px] border-b-[1px] border-gray-200 my-8 w-[90%] mx-auto' />
+      <hr className='border-t-[0.8px] border-b-[0.8px] border-gray-300 my-8 w-[90%] mx-auto' />
       <LastOrdersList />
     </div>
   );

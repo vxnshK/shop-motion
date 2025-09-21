@@ -1,12 +1,11 @@
+import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
 
 export const QuickActions = () => {
   const quickActionLinks = ['Request for product', 'Add member'];
 
   return (
-    <div className='my-4 px-8'>
+    <motion.div className='my-4 px-8'>
       <div className='text-sm text-gray-500 font-medium mb-2'>Quick Links</div>
 
       <div className='flex flex-col gap-2'>
@@ -22,6 +21,6 @@ export const QuickActions = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
