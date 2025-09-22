@@ -1,7 +1,3 @@
-"use client";
-import React from "react";
-import { motion } from "motion/react";
-
 function Sale() {
   return (
     <div className="font-medium whitespace-nowrap">

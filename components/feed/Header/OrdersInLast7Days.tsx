@@ -1,5 +1,3 @@
-import React from 'react'
-
 function OrdersInLast7Days() {
   return (
     <div className='flex items-center gap-2'>
