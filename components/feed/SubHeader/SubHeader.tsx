@@ -7,7 +7,7 @@ export default function SubHeader() {
     <div className='px-6 py-2 flex items-center justify-between'>
       <span className='text-4xl font-medium'>Explore</span>
       <ScreenCategories />
-      <div className='flex items-center gap-[6px]'>
+      <div className='flex items-center gap-[10px]'>
         <Filters />
         <SearchBar />
       </div>
