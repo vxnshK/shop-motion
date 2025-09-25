@@ -1,5 +1,6 @@
 import Header from '@/components/feed/Header/Header';
 import Sidebar from '@/components/feed/Sidebar/Sidebar';
+import SubHeader from '@/components/feed/SubHeader/SubHeader';
 
 function page() {
   return (
@@ -7,6 +8,7 @@ function page() {
       <Sidebar />
       <div className='flex-4'>
         <Header />
+        <SubHeader />
       </div>
     </div>
   );
