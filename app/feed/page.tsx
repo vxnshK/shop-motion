@@ -10,11 +10,13 @@ function page() {
       <div className='z-1 flex border border-gray-300 rounded-2xl bg-white h-[92vh] w-[95vw] overflow-hidden shadow-lg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
         <Sidebar />
         <div className='flex-4'>
-          <div className='border-b-[1px] border-gray-300'>
+          <div className='border-b-[1px] border-gray-300 static'>
             <Header />
             <SubHeader />
           </div>
-          <ShoppingItemsGrid />
+          <div className='overflow-y-scroll h-full pb-36 xl:pb-32'>
+            <ShoppingItemsGrid />
+          </div>
         </div>
       </div>
     </div>
