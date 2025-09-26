@@ -1,8 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import { ExternalLink, Heart } from 'lucide-react';
 import Grid1 from '@/public/grid/grid1.png';
 import Grid2 from '@/public/grid/grid2.png';
 import Grid3_1 from '@/public/grid/grid3.1.png';
+import Grid3_2 from '@/public/grid/grid3.2.png';
+import Grid4_1 from '@/public/grid/grid4.1.png';
 import Grid4_2 from '@/public/grid/grid4.2.png';
 import Fav_1 from '@/public/grid/fav_1.png';
 import Fav_2 from '@/public/grid/fav_2.png';
@@ -32,10 +36,12 @@ export default function ShoppingItemsGrid() {
           </div>
 
           <div className="flex-1 flex flex-col gap-3 h-40 sm:h-56 w-full sm:w-56 overflow-hidden rounded-3xl p-4 border-gray-300 border-[1.5px]">
-            <div className="flex items-center justify-center gap-2 px-4 py-3 bg-[#B68969] hover:bg-[#92694b] text-white transition-all rounded-3xl cursor-pointer">
-              <span className="text-sm">Favourites</span>
-              <Heart size={15} color="red" fill="red" />
-              <span className='bg-white text-black px-3 rounded-3xl'>See all</span>
+            <div className="flex items-center justify-between gap-2 px-4 py-3 bg-[#B68969] text-white rounded-3xl">
+              <div className='flex items-center gap-[4px]'>
+                <Heart size={14} color="white" fill="red" />
+                <span className="text-sm">Favourites</span>
+              </div>
+              <span className='bg-white/90 transition-all hover:bg-white text-black px-2 py-1 text-xs font-medium rounded-3xl cursor-pointer'>See all</span>
             </div>
 
             <div className="flex-1 overflow-hidden rounded-3xl">
@@ -47,18 +53,56 @@ export default function ShoppingItemsGrid() {
 
       <div className="flex flex-col gap-3">
         <div className="flex flex-col sm:flex-row items-start gap-4">
-          <div className="h-64 sm:h-[430px] w-full sm:w-1/2 overflow-hidden rounded-3xl relative">
-            <Image src={Grid3_1} alt="Grid3_1" fill className="object-cover" />
-          </div>
-          <div className="h-64 sm:h-[430px] w-full sm:w-1/2 overflow-hidden rounded-3xl relative">
-            <Image src={Grid4_2} alt="Grid4_2" fill className="object-cover object-top" />
-          </div>
+          <DualImage image1={Grid3_2} image2={Grid3_1} />
+          <DualImage image1={Grid4_1} image2={Grid4_2} />
         </div>
-
         <div className="h-48 sm:h-64 w-full aspect-auto overflow-hidden rounded-3xl relative">
           <Image src={Grid8} alt="Grid8" fill className="object-cover object-center" />
+          <ExternalLink size='30' className='absolute right-[0px] top-[30px] transform -translate-x-1/2 -translate-y-1/2 bg-white/92 hover:bg-white transition-all p-2 cursor-pointer rounded-3xl' />
         </div>
       </div>
     </div>
   );
 }
+
+import type { StaticImageData } from 'next/image';
+import { useState } from 'react';
+
+type DualImageProps = {
+  image1: StaticImageData | string;
+  image2: StaticImageData | string;
+  alt?: string;
+  dot1Color?: string;
+  dot2Color?: string;
+};
+
+const DualImage: React.FC<DualImageProps> = ({
+  image1,
+  image2,
+  alt = '',
+  dot1Color = 'white',
+  dot2Color = 'black',
+}) => {
+  const [activeImage, setActiveImage] = useState(image1);
+
+  return (
+    <div className="h-64 sm:h-[430px] w-full sm:w-1/2 overflow-hidden rounded-3xl relative border-[1.5px] border-gray-300">
+      <Image src={activeImage} alt={alt} fill className="object-cover" />
+      <div className="flex items-center gap-1 absolute left-[35px] top-[25px] transform -translate-x-1/2 -translate-y-1/2 bg-gray-300 px-1 py-1 rounded-3xl">
+        <div
+          className={`h-5 w-5 rounded-4xl cursor-pointer`}
+          style={{ backgroundColor: dot1Color }}
+          onClick={() => setActiveImage(image1)}
+        ></div>
+        <div
+          className={`h-5 w-5 rounded-4xl cursor-pointer`}
+          style={{ backgroundColor: dot2Color }}
+          onClick={() => setActiveImage(image2)}
+        ></div>
+      </div>
+      <button className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md bg-blue-700 text-white backdrop-blur-xs px-4 py-1 rounded-3xl shadow-lg transition-all hover:bg-blue-800 cursor-pointer">
+        Buy at $36
+      </button>
+    </div>
+  );
+};
