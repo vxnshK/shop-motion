@@ -1,4 +1,3 @@
-import React from 'react'
 import OrdersInLast7Days from './OrdersInLast7Days'
 import Sale from './Sale'
 import Cart from './Cart/Cart'

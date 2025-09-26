@@ -1,6 +1,5 @@
-'use client'; // if using Next.js App Router
+'use client';
 
-import React from 'react';
 import { motion } from 'motion/react';
 import { LogOut } from 'lucide-react';
 

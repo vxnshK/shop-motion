@@ -1,4 +1,5 @@
 import Header from '@/components/feed/Header/Header';
+import ShoppingItemsGrid from '@/components/feed/ShoppingItemsGrid/ShoppingItemsGrid';
 import Sidebar from '@/components/feed/Sidebar/Sidebar';
 import SubHeader from '@/components/feed/SubHeader/SubHeader';
 
@@ -13,6 +14,7 @@ function page() {
             <Header />
             <SubHeader />
           </div>
+          <ShoppingItemsGrid />
         </div>
       </div>
     </div>
